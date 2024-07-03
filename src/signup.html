@@ -2,43 +2,48 @@
 <html>
   <head>
     <title>Sign Up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="global.css">
   </head>
   <body>
     <div>
       <a href="index.html">Home</a>
     </div>
-    This is the <span class="highlight">sign up</span> page.
-    <form method="POST" action="https://jsonplaceholder.typicode.com/users">
-      <div>
+    <div class="margin-bottom-8">This is the <span class="highlight">sign up</span> page.</div>
+    <form method="POST" action="https://jsonplaceholder.typicode.com/users" class="short-length-form">
+      <div class="form-group">
         <label for="sign-up-form-email">Email:</label>
         <input type="email" name="email" id="sign-up-form-email" required>
       </div>
-      <div>
+      <div class="form-group">
         <label for="sign-up-form-password">Password:</label>
         <input type="password" name="password" id="sign-up-form-password" required>
       </div>
-      <div>
+      <div class="form-group">
         <label for="dateOfBirth">Date of Birth:</label>
         <input type="date" name="dateOfBirth" id="dateOfBirth" required>
       </div> 
-      <div>
+      <div class="form-group">
         <label>Biography</label>
         <textarea rows="5" name="Biography" required></textarea>
       </div>
-      <div>
-        <div>Your favorite programming language?</div>
-        <label>
-          <input type="radio" name="favoriteLanguage" value="html"> HTML
-        </label>
-        <label>
-          <input type="radio" name="favoriteLanguage" value="css"> CSS
-        </label>
-        <label>
-          <input type="radio" name="favoriteLanguage" value="javascript"> JavaScript
-        </label>
+      <div class="form-group">
+        <div class="margin-bottom-8">Your favorite programming language?</div>
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="favoriteLanguage" value="html"> HTML
+          </label>
+          <label>
+            <input type="radio" name="favoriteLanguage" value="css"> CSS
+          </label>
+          <label>
+            <input type="radio" name="favoriteLanguage" value="javascript"> JavaScript
+          </label>
+        </div>
       </div>
-      <div>
+      <div class="form-group">
         <label>Favorite Color:</label>
         <select name="favoriteColor">
           <option value="red">Red</option>
@@ -51,8 +56,8 @@
       <div>
         <input type="checkbox"> I agree to the terms
       </div>
-      <div>
-        <input type="checkbox"> Subscribe to Newsletter
+      <div class="form-group">
+        <label><input type="checkbox"> Subscribe to Newsletter</label>
       </div>
       <!-- <input type="submit" value="Register"> -->
       <button type="submit">Register</button>
