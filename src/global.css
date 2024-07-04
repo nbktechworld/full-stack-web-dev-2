@@ -34,3 +34,8 @@ body {
 .short-length-form {
   max-width: 300px;
 }
+
+.site-title {
+  background-color: lightgray;
+  padding: 16px;
+}
