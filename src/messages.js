@@ -8,4 +8,6 @@ function addMessage(event) {
   divElement.textContent = comment;
   divElement.classList.add('message-list-item')
   document.getElementById('message-list').appendChild(divElement)
+
+  document.getElementById('message-form-comment').value = ''
 }
