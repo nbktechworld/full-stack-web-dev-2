@@ -8,10 +8,11 @@ export default function Messages() {
 
   function addMessage(event) {
     event.preventDefault();
+    setSubmissionError('');
 
     const newMessage = { comment: newComment };
 
-    fetch('https://jsonplaceholder.typicode.com/posts', {
+    fetch('http://localhost:3001/messages', {
       method: 'POST',
       body: JSON.stringify(newMessage),
       headers: {
@@ -20,6 +21,9 @@ export default function Messages() {
     }).then((response) => {
       // check if no problems (response.ok)
       // im gonna assume happy path
+      if (!response.ok) {
+        throw new Error('There was a problem with the response');
+      }
 
       return response.json();
     }).then((createdPost) => {
@@ -27,20 +31,21 @@ export default function Messages() {
         createdPost,
         ...messages,
       ])
+      setNewComment('')
     })
-
-    setNewComment('')
+    .catch((error) => {
+      setSubmissionError(error.message);
+    });
   }
 
   const [messages, setMessages] = React.useState([]);
+  const [submissionError, setSubmissionError] = React.useState('');
 
   React.useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts?_limit=3').then(function(response) {
+    fetch('http://localhost:3001/messages').then(function(response) {
       return response.json();
     }).then(function(posts) {
-      setMessages(posts.map((post) => {
-        return ({ ...post, comment: post.title });
-      }));
+      setMessages(posts);
 
     })
 
@@ -60,6 +65,9 @@ export default function Messages() {
           <textarea name="comment" id="message-form-comment" value={newComment} onChange={onCommentChange}></textarea>
         </div>
         <button type="submit">Comment</button>
+        {submissionError && (
+          <div class="submission-error-message">{submissionError}</div>
+        )}
       </form>
 
       <h2>Latest</h2>

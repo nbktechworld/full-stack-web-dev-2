@@ -6,3 +6,11 @@
   border: 1px solid black;
   padding: 16px;
 }
+
+.submission-error-message {
+  padding: 16px;
+  color: white;
+  background-color: red;
+  border: 1px solid black;
+  border-radius: 4px;
+}
